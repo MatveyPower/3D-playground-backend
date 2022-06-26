@@ -4,7 +4,14 @@ create TABLE Person(
     login VARCHAR(200),
     email VARCHAR(200),
     password VARCHAR(200),  
-    isAdmin BOOLEAN
+    description BOOLEAN
+    passedMaps INTEGER,
+    algoritms TABLE (Program),
+    type TEXT,
+    groups TEXT,
+    FOREIGN KEY (passedMaps) REFERENCES Map (id),
+    FOREIGN KEY (algoritms) REFERENCES Program (PersonID)
+    FOREIGN KEY (groups) REFERENCES Program (PersonID)
 );
 
 create TABLE Program(
@@ -58,4 +65,10 @@ create TABLE Settings(
     Left_left TEXT,
     Back TEXT,
     Rigth TEXT
+);
+
+create TABLE Groups(
+    name TEXT,
+    id SERIAL PRIMARY KEY,
+    description text
 );

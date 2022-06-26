@@ -18,6 +18,7 @@ class MapsConroller {
         res.json(newMap.rows[0])
     }
 
+
     async getMaps(req, res) {
         const maps = await db.query('SELECT * FROM map')
         const returningMaps = convertedMapForJSON(maps.rows)
